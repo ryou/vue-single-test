@@ -20,5 +20,16 @@ module.exports = {
         }
       }
     ]
+  },
+  // webpack-dev-serverのオプション
+  // 詳細は以下
+  // https://webpack.js.org/configuration/dev-server/#devserver
+  devServer: {
+    contentBase: path.join(__dirname, 'dist'),
+
+    // index.htmlのみのSPAの際に「http://hoge.com/user/status」的なURLにアクセスがあった場合
+    // 当然404エラーを通常返す
+    // そういう場合にindex.htmlを呼び出させる場合はtrue
+    historyApiFallback: true
   }
 };
